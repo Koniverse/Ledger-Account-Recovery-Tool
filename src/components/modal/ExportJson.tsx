@@ -73,7 +73,7 @@ const Component: React.FC<Props> = (props: Props) => {
     if (password && pair) {
       try {
         const json = exportJsonKeypair(pair, password);
-        downloadJson(json, 'Ledger account');
+        downloadJson(json, 'Ledger Recovery');
 
         closeModal();
       } catch (err) {

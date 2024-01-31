@@ -11,7 +11,7 @@ export const MinPasswordLength = 8;
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[~!@#$%^&*])[A-Za-z\d~!@#$%^&*]{8,}$/;
 
 export const exportJsonKeypair = (pair: Keypair, password: string): KeyringPair$Json => {
-  const keyPair = keyring.createFromPair(pair, { name: 'Ledger Recover Account' }, LEDGER_ACCOUNT_TYPE);
+  const keyPair = keyring.createFromPair(pair, { name: 'Ledger Recovery' }, LEDGER_ACCOUNT_TYPE);
 
   return keyPair.toJson(password);
 };
