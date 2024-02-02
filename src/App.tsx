@@ -4,7 +4,6 @@ import CN from 'classnames';
 import ExportJson from 'components/modal/ExportJson';
 import React, { ClipboardEventHandler, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { ThemeProps } from 'types/index';
-import { LEDGER_NETWORKS } from './constants';
 import styled from 'styled-components';
 import { ScreenBaseLayout, ScreenBodyContent } from 'components/layout';
 import AccountNotFound from 'components/modal/AccountNotFound';
@@ -14,6 +13,7 @@ import { Callbacks } from 'rc-field-form/lib/interface';
 import { FilterTabItemType, TabItems } from 'components/common/TabItems';
 import type { Keypair } from '@polkadot/util-crypto/types';
 import { isSameAddress } from 'utils/index';
+import { LEDGER_NETWORKS } from 'constants/supportedApp';
 
 export type FormCallbacks<Values> = Callbacks<Values>;
 

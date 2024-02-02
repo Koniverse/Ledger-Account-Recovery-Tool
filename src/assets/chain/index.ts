@@ -1,33 +1,16 @@
-export const DefaultLogosMap: Record<string, string> = {
-  acala: './images/chain/acala.png',
-  ajunaPolkadot: './images/chain/ajuna.png',
-  astar: './images/chain/astar.png',
-  bifrost_dot: './images/chain/bifrost_dot.png',
-  centrifuge: './images/chain/centrifuge.png',
-  composable: './images/chain/composablefinance.png',
-  edgeware: './images/chain/edgeware.png',
-  genshiro: './images/chain/genshiro.png',
-  hydradx_main: './images/chain/hydradx_main.png',
-  karura: './images/chain/karura.png',
-  kusama: './images/chain/kusama.png',
-  nodle: './images/chain/nodle.png',
-  parallel: './images/chain/parallel.png',
-  pendulum: './images/chain/pendulum.png',
-  phala: './images/chain/phala.png',
-  picasso: './images/chain/picasso.png',
-  polkadex: './images/chain/polkadex.png',
-  polkadot: './images/chain/polkadot.png',
-  polymesh: './images/chain/polymesh.png',
-  sora: './images/chain/sora_substrate.png',
-  ternoa: './images/chain/ternoa.png',
-  xxnetwork: './images/chain/xx_network.png',
-  zeitgeist: './images/chain/zeitgeist.png',
-  darwinia: './images/chain/darwinia2.png',
-  equilibrium: './images/chain/equilibrium_parachain.png',
-  alephzero: './images/chain/aleph.png',
-  dock: './images/chain/dockposmainnet.png',
-  unique: './images/chain/unique_network.png',
-  reef: './images/chain/Reef.png',
-  stafi: './images/chain/stafi.png',
-  bifrostkusama: './images/chain/bifrost-kusama.png'
+import { ChainLogoMap } from '@subwallet/chain-list';
+
+export const DefaultLogosMap: Record<string, string> = {};
+
+for (const key in ChainLogoMap) {
+  const chainName = key;
+  const imageUrl = ChainLogoMap[key];
+  const imageName = imageUrl?.split('/').pop();
+
+  DefaultLogosMap[chainName] = `./images/chains/${imageName}`;
+}
+const LogosMapNotExistOnChainList: Record<string, string> = {
+  reef: './images/chains/Reef.png',
+  stafi: './images/chains/stafi.png'
 };
+Object.assign(DefaultLogosMap, LogosMapNotExistOnChainList);
