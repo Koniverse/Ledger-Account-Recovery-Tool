@@ -26,8 +26,7 @@ const ScreenBodyContent = styled(Component)<Props>(({ theme: { token } }: Props)
     flexDirection: 'column',
 
     '.screen-body-content-inner': {
-      width: '100%',
-      paddingTop: 24
+      width: '100%'
     }
   };
 });

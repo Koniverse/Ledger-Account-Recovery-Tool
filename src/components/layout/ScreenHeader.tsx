@@ -40,6 +40,7 @@ const Component: React.FC<Props> = ({ className }: Props) => {
                   href={'https://github.com/Koniverse/SubWallet-Ledger-Recover'}
                   target={'_blank'}
                   type={'ghost'}
+                  size={'xs'}
               >
                   <Image
                       height='var(--img-height)'
@@ -60,7 +61,10 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
     display: 'flex',
 
     '.__logo-wrapper': {
-      cursor: 'pointer'
+      cursor: 'pointer',
+      height: 40,
+      display: 'flex',
+      alignItems: 'center'
     },
     '.__mid-part': {
       fontSize: token.fontSizeHeading2,
@@ -72,27 +76,38 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
       fontSize: token.fontSizeHeading4
     },
     '.__help': {
-      paddingLeft: 8,
-      alignItems: 'center'
+      paddingLeft: token.paddingXS,
+      alignItems: 'flex-start'
+    },
+    '.__img-user': {
+      display: 'flex',
+      height: 40,
+      paddingRight: 0
     },
     '.__header-left-part': {
       display: 'flex',
-      alignItems: 'center',
       gap: token.sizeXL,
       width: 68
+    },
+    '&.-mobile': {
+      paddingBottom: 0,
+      paddingTop: token.paddingLG,
+      paddingRight: token.paddingLG,
+      paddingLeft: token.paddingLG
     },
 
     '.__header-right-part': {
       boxSizing: 'border-box',
       display: 'flex',
       gap: token.paddingMD,
-      alignItems: 'center',
       borderRadius: token.borderRadiusLG,
-      paddingTop: token.padding,
-      paddingBottom: token.padding,
       lineHeight: token.lineHeight
 
     },
+    '&.screen-header': {
+      paddingBottom: 48
+    },
+
     '@media(max-width: 767px)': {
       '.__mid-part': {
         fontSize: token.fontSizeHeading3,
@@ -103,6 +118,17 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
 
       '.__subtitle': {
         fontSize: token.fontSizeHeading5
+      },
+
+      '&.screen-header': {
+        paddingBottom: token.paddingXL,
+        paddingTop: 24
+      }
+    },
+    '@media(max-width: 560px)': {
+      '&.-mobile': {
+        paddingTop: token.paddingSM,
+        paddingBottom: token.paddingSM
       }
     },
     '@media(max-width: 500px)': {
@@ -110,8 +136,8 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
         fontSize: token.fontSizeLG,
         flex: 1,
         textAlign: 'center',
-        paddingLeft: 4,
-        paddingRight: 4
+        paddingLeft: token.paddingXXS,
+        paddingRight: token.paddingXXS
       },
 
       '.__subtitle': {
@@ -133,8 +159,6 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
         alignItems: 'center',
         justifyContent: 'flex-end',
         borderRadius: token.borderRadiusLG,
-        paddingTop: token.padding,
-        paddingBottom: token.padding,
         lineHeight: token.lineHeight
       },
       '&.screen-header': {
@@ -142,6 +166,9 @@ const ScreenHeader = styled(Component)<Props>(({ theme: { token } }: Props) => {
         paddingRight: token.padding,
         display: 'flex',
         alignItems: 'center'
+      },
+      '&.-mobile': {
+        paddingTop: token.padding
       },
       '.ant-btn': {
         padding: 0
